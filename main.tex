@@ -42,26 +42,15 @@
 \tableofcontents
 \newpage
 
-% Índice de figuras
-\addcontentsline{toc}{chapter}{Índice de figuras}  % Añade la referencia al índice de contenido
-\hypertarget{lof}{}
-\listoffigures
-
 \justify{} % Texto justificado
 \setlength{\parskip}{\baselineskip} % Separación entre párrafos de 1 linea
 \onehalfspacing{}
 
 %% El contenido de la memoria, dividido en capítulos:
 \input{sections/1_intro.tex}
+\input{sections/2_specs.tex}
+\input{sections/3_diseño.tex}
+\input{sections/4_fallos.tex}
 \input{sections/concl.tex}
-
-%% Esto incluirá la bibliografía correctamente en nuestro trabajo
-\newpage % En una nueva página
-\addcontentsline{toc}{chapter}{Bibliografía} % Añade la referencia al índice de contenido
-
-\bibliographystyle{ieeetr} % Define el estilo de la bibliografía
-\bibliography{biblio} % Indica el archivo que contiene la colección de citas
-
-\nocite{template}
 
 \end{document}
