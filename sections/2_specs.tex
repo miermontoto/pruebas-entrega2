@@ -6,6 +6,8 @@ A partir de la especificación de requisitos, se han identificado las siguientes
 \subsection{Entrada}
 \begin{itemize}
 	\item \textbf{Fecha de inscripción}
+		\\\textit{NOTA: la fecha de inicio 2 es opcional.}
+
 		\begin{enumerate}
 			\item Fecha anterior a Inicio 1~(\textcolor{red}{I})
 			\item Fecha entre Inicio 1 e Inicio 2
@@ -49,13 +51,13 @@ A partir de la especificación de requisitos, se han identificado las siguientes
 \begin{itemize}
 	\item \textbf{Categoría}
 		\begin{itemize}
-			\item Masculina: SM, M-35, M-40, M-45, M-50, M-55, M-60, M-65, M-70, M-70
-			\item Femenina: SF, F-40, F-45, F-50, F-55, F-60, F-65, F-70, F-70
+			\item Masculina: SM, M-35, M-40, M-45, M-50, M-55, M-60, M-65, M-70
+			\item Femenina: SF, F-40, F-45, F-50, F-55, F-60, F-70
 		\end{itemize}
 	\item \textbf{Cuota}
 		\begin{itemize}
 			\item Cuota reducida 1
-			\item Cuota reducida 2 (opcional)
+			\item Cuota reducida 2 (\textit{opcional})
 			\item Cuota de inscripción
 		\end{itemize}
 	\item \textbf{Resultado}
@@ -106,12 +108,25 @@ los valores límite de las clases de equivalencia. Estos valores límite se util
 determinar los casos de prueba que se deben realizar para garantizar que el sistema se
 comporta correctamente en los límites de las clases de equivalencia.
 
-Obviamente, no se aplica AVL a TODAS las clases de equivalencia, sino a aquellas que se
-consideran más relevantes.
+Solo se aplica AVL en aquellas situaciones en las que se considera que el comportamiento del
+sistema puede variar en los límites de las clases de equivalencia. En este caso, se ha aplicado
+AVL en las siguientes situaciones:
 
 \begin{itemize}
-	\item \textbf{Fecha de inscripción}: se aplica AVL para comprobar que en los límites de las
-		fechas de inscripción, el sistema se comporta correctamente. |TODO| completar
+	\item \textbf{Fecha de inscripción}: se considera el límite entre las fechas de inicio y
+		fin de cada plazo como \textit{valores límite}, por lo que se comprueban individualmente.
+		Dependiendo del número de plazos (que pueden ser 2 o 3), los valores a límite a comprobar
+		son los siguientes: \\\begin{minipage}{\linewidth}
+			\centering
+			\includegraphics[width=\textwidth]{plazos.png}
+			\captionof{figure}{Plazos de inscripción}
+		\end{minipage}
+
+		Como se puede observar en el anterior diagrama, en el caso de que haya solo dos plazos
+		tanto la fecha de cierre como la fecha de inicio pertenecen al primer plazo. En el caso
+		de que haya tres plazos, la fecha de inicio del segundo plazo y la fecha de cierre
+		pertenecen al segundo plazo. En ambos casos, tres días antes del comienzo de la carrera
+		es el día límite para inscribirse.
 	\item \textbf{Edad}: se aplica AVL en el límite entre mayor y menor de edad, y en algunos
 		límites de las categorías de edad para comprobar que todo funciona correctamente, es
 		decir: \begin{itemize}

@@ -7,14 +7,44 @@ se diseñan las situaciones y, posteriormente, los casos de prueba.
 	\item \textbf{Inscripción}
 		\begin{itemize}
 			\item \textit{Pruebas}
-				\begin{enumerate}[label*=SIP\arabic*.]
-					\item
+				\begin{enumerate}[label*=SPI\arabic*.]
+					\item \textbf{Género-Edad:} \begin{enumerate}[label*=\arabic*]
+						\item Hombre menor que 18~(\textcolor{red}{I})
+						\item Hombre menor que 35
+						\item Hombre menor que 40
+						\item Hombre menor que 45
+						\item Hombre menor que 50
+						\item Hombre menor que 55
+						\item Hombre menor que 60
+						\item Hombre menor que 65
+						\item Hombre menor que 70
+						\item Hombre mayor que 70
+						\item Mujer menor que 18~(\textcolor{red}{I})
+						\item Mujer menor que 35
+						\item Mujer menor que 40
+						\item Mujer menor que 45
+						\item Mujer menor que 50
+						\item Mujer menor que 55
+						\item Mujer menor que 60
+						\item Mujer menor que 65
+						\item Mujer menor que 70
+						\item Mujer mayor que 70
+					\end{enumerate}
+					\item \textbf{Fecha de inscripción:} \begin{enumerate}[label*=\arabic*]
+						\item Fecha anterior a Inicio 1~(\textcolor{red}{I})
+						\item Fecha entre Inicio 1 e Inicio 2
+						\item Fecha entre Inicio 2 y cierre
+						\item Fecha entre cierre y tres días antes de la carrera
+						\item Fecha dos días antes de la carrera~(\textcolor{red}{I})
+						\item Fecha el día de la carrera~(\textcolor{red}{I})
+					\end{enumerate}
 				\end{enumerate}
-			\item \textit{Validación}[label=SIV\arabic*.]
+			\item \textit{Validación}
 		\end{itemize}
 	\item \textbf{Creación de carrera (solo validación)}
 		 \begin{enumerate}[label=SCV\arabic*.]
-			\item
+			\item Número máximo de inscripciones negativo~(\textcolor{red}{I})
+			\item Número máximo de inscripciones cero~(\textcolor{red}{I})
 		 \end{enumerate}
 \end{itemize}
 
