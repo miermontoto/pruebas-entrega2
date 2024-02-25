@@ -25,7 +25,7 @@
 \usepackage{fancyvrb}
 
 \usepackage{hyperref} % Paquete para que las referencias funcionen, y permite introducir links
-\usepackage{xcolor} % Paquete para trabajar con colores (fondo de celdas, color del texto...)
+\usepackage[table]{xcolor} % Paquete para trabajar con colores (fondo de celdas, color del texto...)
 \input{config.tex}
 
 
@@ -40,7 +40,6 @@
 \addcontentsline{toc}{chapter}{Índice de contenido} % Añade la referencia al índice de contenido
 \hypertarget{toc}{}
 \tableofcontents
-\newpage
 
 \justify{} % Texto justificado
 \setlength{\parskip}{\baselineskip} % Separación entre párrafos de 1 linea
@@ -52,5 +51,6 @@
 \input{sections/3_diseño.tex}
 \input{sections/4_fallos.tex}
 \input{sections/concl.tex}
+\input{sections/a1_bbdd.tex}
 
 \end{document}
