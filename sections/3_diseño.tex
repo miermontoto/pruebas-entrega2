@@ -9,54 +9,103 @@ se diseñan las situaciones y, posteriormente, los casos de prueba.
 			\item \textit{Pruebas}
 				\begin{enumerate}[label*=SPI\arabic*.]
 					\item \textbf{Género-Edad:} \begin{enumerate}[label*=\arabic*]
-						\item Hombre menor que 18~(\textcolor{red}{I})
-						\item Hombre menor que 35
-						\item Hombre menor que 40
-						\item Hombre menor que 45
-						\item Hombre menor que 50
-						\item Hombre menor que 55
-						\item Hombre menor que 60
-						\item Hombre menor que 65
-						\item Hombre menor que 70
-						\item Hombre mayor que 70
-						\item Mujer menor que 18~(\textcolor{red}{I})
-						\item Mujer menor que 35
-						\item Mujer menor que 40
-						\item Mujer menor que 45
-						\item Mujer menor que 50
-						\item Mujer menor que 55
-						\item Mujer menor que 60
-						\item Mujer menor que 65
-						\item Mujer menor que 70
-						\item Mujer mayor que 70
+						\item Hombre menor de 18~(\textcolor{red}{I})
+						\item (AVL) Hombre menor de 18 años por un día (el día de la carrera)~(\textcolor{red}{I})
+						\item (AVL) Hombre de 18 cumplidos el día de la carrera
+						\item Hombre menor de 35
+						\item (AVL) Hombre de 35 cumplidos el día de la carrera
+						\item Hombre menor de 40
+						\item Hombre menor de 45
+						\item Hombre menor de 50
+						\item Hombre menor de 55
+						\item Hombre menor de 60
+						\item Hombre menor de 65
+						\item Hombre menor de 70
+						\item Hombre mayor de 70
+						\item Mujer menor de 18~(\textcolor{red}{I})
+						\item Mujer menor de 35
+						\item Mujer menor de 40
+						\item Mujer menor de 45
+						\item Mujer menor de 50
+						\item Mujer menor de 55
+						\item Mujer menor de 60
+						\item Mujer menor de 65
+						\item Mujer menor de 70
+						\item Mujer mayor de 70
 					\end{enumerate}
-					\item \textbf{Fecha de inscripción:} \begin{enumerate}[label*=\arabic*]
+					\item \textbf{Fecha de inscripción (AVL):} \begin{enumerate}[label*=\arabic*]
 						\item Fecha anterior a Inicio 1~(\textcolor{red}{I})
-						\item Fecha entre Inicio 1 e Inicio 2
-						\item Fecha entre Inicio 2 y cierre
-						\item Fecha entre cierre y tres días antes de la carrera
+						\item Fecha de Inicio 1
+						\item Fecha de Inicio 2 (con 3 plazos)
+						\item Fecha de cierre
+						\item Fecha tres días antes de la carrera
 						\item Fecha dos días antes de la carrera~(\textcolor{red}{I})
-						\item Fecha el día de la carrera~(\textcolor{red}{I})
+						\item Fecha de la carrera~(\textcolor{red}{I})
+					\end{enumerate}
+					\item \textbf{Inscripción ya existente en la misma carrera:} \begin{enumerate}[label*=\arabic*]
+						\item Sí~(\textcolor{red}{I})
+						\item No
+					\end{enumerate}
+					\item \textbf{Quedan plazas vacías:} \begin{enumerate}[label*=\arabic*]
+						\item Sí
+						\item No~(\textcolor{red}{I})
 					\end{enumerate}
 				\end{enumerate}
 			\item \textit{Validación}
+				\begin{enumerate}[label*=SVI\arabic*.]
+					\item NIF vacío~(\textcolor{red}{I})
+					\item Formato de fecha incorrecto (diferente de YYYY-MM-DD)~(\textcolor{red}{I})
+					\item Sexo no contemplado (diferente de M, F)~(\textcolor{red}{I})
+				\end{enumerate}
 		\end{itemize}
-	\item \textbf{Creación de carrera (solo validación)}
-		 \begin{enumerate}[label=SCV\arabic*.]
+	\item \textbf{Competiciones}
+		 \begin{enumerate}[label=SC\arabic*.]
+			\item \textbf{Número de plazos}
+			\begin{enumerate}[label*=\arabic*]
+				\item Dos plazos
+				\item Tres plazos
+			\end{enumerate}
 			\item Número máximo de inscripciones negativo~(\textcolor{red}{I})
 			\item Número máximo de inscripciones cero~(\textcolor{red}{I})
+			\item Fecha de inscripción 2 posterior a la de inscripción 1~(\textcolor{red}{I})
+			\item Fecha de cierre anterior a la de inscripción 2~(\textcolor{red}{I})
+			\item Fecha de prueba anterior a la de cierre~(\textcolor{red}{I})
 		 \end{enumerate}
 \end{itemize}
 
 \section{Trazabilidad y casos de prueba}
+\subsection{Competiciones}
+A continunación se muestran los casos de prueba y el resultado de ejecución de aquellos asociados
+a la funcionalidad de gestión de competiciones.
+
 \begin{table}[ht]
 	\centering
+	\caption{Casos de prueba para la funcionalidad de gestión de competiciones}
 	\rowcolors{2}{gray!15}{white}
 	\begin{tabular}{|c|c|c|c|c|}
 		\hline
 		\textbf{ID} & \textbf{Entrada} & \textbf{Situaciones cubiertas} & \textbf{Salida esperada} & \textbf{Resultado} \\
 		\hline
-		C1 & place & hol & der & \cellcolor{green!25} OK \\
+		\hline
+
+		\hline
+	\end{tabular}
+\end{table}
+
+\subsection{Inscripciones}
+A continunación se muestran los casos de prueba y el resultado de ejecución de aquellos asociados
+a la funcionalidad de inscripción.
+
+\begin{table}
+	\centering
+	\caption{Casos de prueba para la funcionalidad de inscripción}
+	\rowcolors{2}{gray!15}{white}
+	\begin{tabular}{|c|c|c|c|c|c|}
+		\hline
+		\textbf{ID} & \textbf{Entrada} & \textbf{Situaciones cubiertas} & \textbf{Salida esperada} & \textbf{Resultado} \\
+		\hline
+		\hline
+
 		\hline
 	\end{tabular}
 \end{table}

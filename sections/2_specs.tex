@@ -3,15 +3,15 @@
 \section{Clases de equivalencia}
 A partir de la especificación de requisitos, se han identificado las siguientes clases de equivalencia:
 
-\subsection{Entrada}
+\subsection{Inscripción}
+\subsubsection{Entrada}
 \begin{itemize}
 	\item \textbf{Fecha de inscripción}
 		\\\textit{NOTA: la fecha de inicio 2 es opcional.}
-
 		\begin{enumerate}
 			\item Fecha anterior a Inicio 1~(\textcolor{red}{I})
-			\item Fecha entre Inicio 1 e Inicio 2
-			\item Fecha entre Inicio 2 y cierre
+			\item Fecha entre Inicio 1 e Inicio 2 (\textit{si existe})
+			\item Fecha entre inicio anterior y cierre
 			\item Fecha entre cierre y celebración de la actividad
 			\item Fecha posterior a la celebración de la actividad~(\textcolor{red}{I})
 		\end{enumerate}
@@ -47,7 +47,7 @@ A partir de la especificación de requisitos, se han identificado las siguientes
 			\end{itemize}
 \end{itemize}
 
-\subsection{Salida}
+\subsubsection{Salida}
 \begin{itemize}
 	\item \textbf{Categoría}
 		\begin{itemize}
@@ -66,6 +66,25 @@ A partir de la especificación de requisitos, se han identificado las siguientes
 			\item Inscripción rechazada~(\textcolor{red}{I})
 		\end{itemize}
 \end{itemize}
+\newpage{}
+\subsection{Competiciones}
+Para la funcionalidad de gestión de competiciones, no se identifican con tanto detalle las
+clases de equivalencia, puesto que se considera que la funcionalidad más importante y la que
+está de cara al usuario es la de inscripción en las mismas. Sin embargo, se identifican
+separaciones claves en las entradas que cambian el comportamiento del sistema que afectan a
+las inscripciones:
+
+\begin{itemize}
+	\item \textbf{Número de plazos}
+		\\ El número de plazos afecta tanto a toda lógica de los plazos como a las posibles
+		salidas en lo que a cuotas se refiere. Se contemplan dos opciones: \begin{itemize}
+			\item Dos plazos
+			\item Tres plazos
+		\end{itemize}
+\end{itemize}
+
+El resto de pruebas que se realizarán sobre esta funcionalidad serán pruebas de validación
+de datos que se
 
 \section{Combinatoria}
 A la hora de determinar las situaciones a probar, se han generado \textit{combinaciones} de
@@ -127,6 +146,10 @@ AVL en las siguientes situaciones:
 		de que haya tres plazos, la fecha de inicio del segundo plazo y la fecha de cierre
 		pertenecen al segundo plazo. En ambos casos, tres días antes del comienzo de la carrera
 		es el día límite para inscribirse.
+
+		Al aplicar AVL en este caso, se comprueba que el sistema sigue todos los plazos y fechas
+		de inscripción correctamente en los límites de los plazos, siendo el mismo día o el día
+		anterior o posterior a la fecha límite dependiendo de las características de cada plazo.
 	\item \textbf{Edad}: se aplica AVL en el límite entre mayor y menor de edad, y en algunos
 		límites de las categorías de edad para comprobar que todo funciona correctamente, es
 		decir: \begin{itemize}
