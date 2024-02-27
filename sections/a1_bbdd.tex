@@ -1,1 +1,73 @@
-\chapter{Anexo: Base de datos}
+\chapter{Anexo: Base de datos}\label{anexo:bbdd}
+En este anexo se detallan los datos que se utilizan para probar la aplicación. Al crear una base de datos
+de pruebas, se reduce la cantidad de datos a un número manejable, además de tener una mejor trazabilidad
+de los casos de prueba que permite una mejor depuración de errores y una mayor facilidad para la realización
+de las propias pruebas.
+
+En las bases de datos solo se almacenan datos necesarios para probar la lógica de negocio, es decir, las pruebas
+de validación de datos no cuentan con un nivel de detalle tan estricto porque su trazabilidad es más sencilla.
+
+\section{Competiciones}
+A continunación se muestran las competiciones que se utilizan para probar la aplicación:
+\begin{table}[H]
+	\centering
+	\caption{Base de datos de prueba de competiciones}
+	\rowcolors{2}{gray!15}{white}
+	\resizebox{\textwidth}{!}{
+		\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|}
+			\hline
+			\textbf{ID} & \textbf{Name} & \textbf{FPrueb} & \textbf{FInscr1} & \textbf{FInscr2} & \textbf{FCierre} & \textbf{€Red1} & \textbf{€Red2} & \textbf{€Inscr} & \textbf{MáxInscr} \\
+			\hline
+			\hline
+			PC1 & 3plazos & 2024-06-01 & 2024-03-01 & 2024-04-01 & 2024-05-01 & 5 & 6 & 7 & 100 \\
+			PC2 & 2plazos & 2024-06-01 & 2024-03-01 & - & 2024-05-01 & 5 & - & 7 & 100 \\
+			PC3 & 1plaza & 2024-06-01 & 2024-03-01 & 2024-04-01 & 2024-05-01 & 5 & 6 & 7 & 1 \\
+			\hline
+		\end{tabular}
+	}
+\end{table}
+
+\section{Atletas}
+\textit{NOTA: para todos los atletas, no se especifica club y su país es España excepto si se indica lo contrario.} \\ \\
+A continunación se muestran los atletas que se utilizan para probar la aplicación:
+
+\begin{table}[H]
+	\centering
+	\caption{Base de datos de prueba de atletas}
+	\rowcolors{2}{gray!15}{white}
+	\begin{tabular}{|c|c|c|c|c|}
+		\hline
+		 \textbf{NIF (ID)} & \textbf{Nombre} & \textbf{Apellidos} & \textbf{F. Nacimiento} & \textbf{Sexo} \\
+		\hline
+		\hline
+		sp11 & Hombre & Menor18 & 2024-01-01 & M \\
+		sp12 & Hombre & Casi18 & 2006-05-31 & M \\
+		sp13 & Hombre & Justo18 & 2006-06-01 & M \\
+		sp14 & Hombre & Menor35 & 2002-01-01 & M \\
+		sp15 & Hombre & Ya45 & 1979-05-31 & M \\
+		sp16 & Hombre & Justo45 & 1979-06-01 & M \\
+		sp17 & Hombre & Casi45 & 1979-06-02 & M \\
+		sp18 & Hombre & Menor40 & 1985-01-01 & M \\
+		sp19 & Hombre & Menor45 & 1980-01-01 & M \\
+		sp110 & Hombre & Menor50 & 1975-01-01 & M \\
+		sp111 & Hombre & Menor55 & 1970-01-01 & M \\
+		sp112 & Hombre & Menor60 & 1965-01-01 & M \\
+		sp113 & Hombre & Menor65 & 1960-01-01 & M \\
+		sp114 & Hombre & Menor70 & 1955-01-01 & M \\
+		sp115 & Hombre & Mayor70 & 1950-12-31 & M \\
+		sp116 & Mujer & Menor18 & 2024-01-01 & F \\
+		sp117 & Mujer & Menor35 & 1990-01-01 & F \\
+		sp118 & Mujer & Menor40 & 1985-01-01 & F \\
+		sp119 & Mujer & Menor45 & 1980-01-01 & F \\
+		sp120 & Mujer & Menor50 & 1975-01-01 & F \\
+		sp121 & Mujer & Menor55 & 1970-01-01 & F \\
+		sp122 & Mujer & Menor60 & 1965-01-01 & F \\
+		sp123 & Mujer & Menor65 & 1960-01-01 & F \\
+		sp124 & Mujer & Menor70 & 1955-01-01 & F \\
+		sp125 & Mujer & Mayor70 & 1950-12-31 & F \\
+		sp126 & Mujer & MuyMayor & 1904-01-01 & F \\
+		sp31 & Mujer & DobleInscr & 2000-01-01 & F \\
+		sp42 & Mujer & Placeholder & 2000-01-01 & F \\
+		\hline
+	\end{tabular}
+\end{table}

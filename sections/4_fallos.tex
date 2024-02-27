@@ -1,1 +1,16 @@
 \chapter{Reporte de fallos}
+Después de probar el sistema con el diseño y los datos anteriormente mencionados,
+se detectan los siguientes fallos (en orden de relevancia):
+
+\begin{itemize}
+	\item No se contempla la categoría M-35, los corredores que deberían pertenecer a
+		esta categoría se inscriben en la categoría SM. (SPI1.8)
+	\item No se calcula bien el límite de mayoría de edad en los casos probados, ya que no se
+		permite inscribir a atletas de 18 años cumplidos el día de la carrera. (SPI1.3)
+	\item Los organizadores pueden crear competiciones con fechas de inicio, cierre y día de carrera
+		en cualquier orden, siendo posible que la fecha de cierre sea posterior al día del evento, o
+		que no exista plazo lógico de inscripción (entre otras combinaciones). (SC3, SC4, SC5, SC6)
+	\item Se admiten inscripciones cuando el día de inscripción está entre el día de la carrera y
+		tres días antes, cuando no debería ser posible. (SPI2.6)
+	\item Se admiten atletas sin país. (SVI3)
+\end{itemize}

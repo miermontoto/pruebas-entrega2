@@ -269,7 +269,7 @@ public class Inscripcion {
     query = String.valueOf(query) + " WHERE idAtleta = " + idAtleta + " AND idCompeticion = " + idComp + ";";
     ResultSet rsIns = this.db.query(query);
     if (rsIns.next()) {
-      System.out.println("Ya estinscrito");
+      System.out.println("Ya está inscrito");
       return "7";
     }
     Date fechaInicio1 = rsCompeticion.getDate("fechaInicio1");
@@ -333,7 +333,7 @@ public class Inscripcion {
     String[] cabeceraCsv = null;
     if (rdr.readHeaders()) {
       cabeceraCsv = rdr.getHeaders();
-      System.out.println(">>>INSCRIPCILeida cabecera csv : " + cabeceraCsv.length + " columnas");
+      System.out.println(">>>INSCRIPCIÓN Leida cabecera csv : " + cabeceraCsv.length + " columnas");
     } else {
       throw new RuntimeException("El fichero " + fromFile + " no contiene cabecera (nombre de los campos): [NIF, Nombre, Apellido, FechaNacimiento, Sexo y Club]");
     }

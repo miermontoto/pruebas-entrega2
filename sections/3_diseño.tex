@@ -2,37 +2,43 @@
 A partir de las clases de equivalencia identificadas en la sección anterior,
 se diseñan las situaciones y, posteriormente, los casos de prueba.
 
+
 \section{Situaciones}
 \begin{itemize}
 	\item \textbf{Inscripción}
 		\begin{itemize}
 			\item \textit{Pruebas}
 				\begin{enumerate}[label*=SPI\arabic*.]
-					\item \textbf{Género-Edad:} \begin{enumerate}[label*=\arabic*]
-						\item Hombre menor de 18~(\textcolor{red}{I})
-						\item (AVL) Hombre menor de 18 años por un día (el día de la carrera)~(\textcolor{red}{I})
-						\item (AVL) Hombre de 18 cumplidos el día de la carrera
-						\item Hombre menor de 35
-						\item (AVL) Hombre de 35 cumplidos el día de la carrera
-						\item Hombre menor de 40
-						\item Hombre menor de 45
-						\item Hombre menor de 50
-						\item Hombre menor de 55
-						\item Hombre menor de 60
-						\item Hombre menor de 65
-						\item Hombre menor de 70
-						\item Hombre mayor de 70
-						\item Mujer menor de 18~(\textcolor{red}{I})
-						\item Mujer menor de 35
-						\item Mujer menor de 40
-						\item Mujer menor de 45
-						\item Mujer menor de 50
-						\item Mujer menor de 55
-						\item Mujer menor de 60
-						\item Mujer menor de 65
-						\item Mujer menor de 70
-						\item Mujer mayor de 70
-					\end{enumerate}
+					\item \textbf{Género-Edad:}
+						\\\textit{NOTA: se considera la edad cumplida el día de la carrera.}
+						\begin{enumerate}[label*=\arabic*]
+							\item Hombre menor de 18~(\textcolor{red}{I})
+							\item (AVL) Hombre menor de 18 años por un día~(\textcolor{red}{I})
+							\item (AVL) Hombre de 18 cumplidos el día de la carrera
+							\item Hombre menor de 35
+							\item (AVL) Hombre de 35 cumplidos el día anterior
+							\item (AVL) Hombre de 35 cumplidos el día de la carrera
+							\item (AVL) Hombre de 35 cumplidos el día siguiente
+							\item Hombre menor de 40
+							\item Hombre menor de 45
+							\item Hombre menor de 50
+							\item Hombre menor de 55
+							\item Hombre menor de 60
+							\item Hombre menor de 65
+							\item Hombre menor de 70
+							\item Hombre mayor de 70
+							\item Mujer menor de 18~(\textcolor{red}{I})
+							\item Mujer menor de 35
+							\item Mujer menor de 40
+							\item Mujer menor de 45
+							\item Mujer menor de 50
+							\item Mujer menor de 55
+							\item Mujer menor de 60
+							\item Mujer menor de 65
+							\item Mujer menor de 70
+							\item Mujer mayor de 70
+							\item Mujer muy mayor (ej. 120)
+						\end{enumerate}
 					\item \textbf{Fecha de inscripción (AVL):} \begin{enumerate}[label*=\arabic*]
 						\item Fecha anterior a Inicio 1~(\textcolor{red}{I})
 						\item Fecha de Inicio 1
@@ -54,29 +60,31 @@ se diseñan las situaciones y, posteriormente, los casos de prueba.
 			\item \textit{Validación}
 				\begin{enumerate}[label*=SVI\arabic*.]
 					\item NIF vacío~(\textcolor{red}{I})
-					\item Formato de fecha incorrecto (diferente de YYYY-MM-DD)~(\textcolor{red}{I})
 					\item Sexo no contemplado (diferente de M, F)~(\textcolor{red}{I})
+					\item País vacío~(\textcolor{red}{I})
 				\end{enumerate}
 		\end{itemize}
 	\item \textbf{Competiciones}
 		 \begin{enumerate}[label=SC\arabic*.]
-			\item \textbf{Número de plazos}
-			\begin{enumerate}[label*=\arabic*]
-				\item Dos plazos
-				\item Tres plazos
-			\end{enumerate}
 			\item Número máximo de inscripciones negativo~(\textcolor{red}{I})
 			\item Número máximo de inscripciones cero~(\textcolor{red}{I})
+			\item Formato de fecha incorrecto (diferente de YYYY-MM-DD)~(\textcolor{red}{I})
 			\item Fecha de inscripción 2 posterior a la de inscripción 1~(\textcolor{red}{I})
 			\item Fecha de cierre anterior a la de inscripción 2~(\textcolor{red}{I})
 			\item Fecha de prueba anterior a la de cierre~(\textcolor{red}{I})
+			\item Fecha de cierre dos días antes de la prueba~(\textcolor{red}{I})
 		 \end{enumerate}
 \end{itemize}
 
 \section{Trazabilidad y casos de prueba}
+Para la ejecución de las pruebas, se utilizan los datos establecidos en el anexo de base de datos,
+siguiendo su nomenclatura, a menos que se estipule lo contrario. (\textit{Ver \nameref{anexo:bbdd}})
 \subsection{Competiciones}
 A continunación se muestran los casos de prueba y el resultado de ejecución de aquellos asociados
 a la funcionalidad de gestión de competiciones.
+
+Para probar las situaciones de este aspecto, se utiliza la inscripción \textit{PC1} como datos por
+defecto. Las modificaciones se indican en la columna de entrada.
 
 \begin{table}[ht]
 	\centering
@@ -84,10 +92,16 @@ a la funcionalidad de gestión de competiciones.
 	\rowcolors{2}{gray!15}{white}
 	\begin{tabular}{|c|c|c|c|c|}
 		\hline
-		\textbf{ID} & \textbf{Entrada} & \textbf{Situaciones cubiertas} & \textbf{Salida esperada} & \textbf{Resultado} \\
+		\textbf{ID} & \textbf{Entrada} & \textbf{Sit. cubierta(s)} & \textbf{Salida esperada} & \textbf{Resultado} \\
 		\hline
 		\hline
-
+		C1 & Núm. max. inscr. $= -1$ & SC1 & Error & \OK \\
+		C2 & Núm. max. inscr. $= 0$ & SC2 & Error & \OK \\
+		C3 & Fecha Prueba: 8/7/2017 & SC3 & Error & \OK \\
+		C4 & Fecha Inscr. (1): 2024-04-25 & SC3 & Error & \MAL{introducido} \\
+		C5 & Fecha Inscr. (2): 2024-05-25 & SC4 & Error & \MAL{introducido} \\
+		C6 & F. Cierre Inscr.: 2024-06-02 & SC5 & Error & \MAL{introducido} \\
+		C7 & F. Cierre Inscr.: 2024-05-31 & SC6 & Error & \MAL{introducido} \\
 		\hline
 	\end{tabular}
 \end{table}
@@ -96,16 +110,51 @@ a la funcionalidad de gestión de competiciones.
 A continunación se muestran los casos de prueba y el resultado de ejecución de aquellos asociados
 a la funcionalidad de inscripción.
 
-\begin{table}
+\begin{table}[H]
 	\centering
 	\caption{Casos de prueba para la funcionalidad de inscripción}
-	\rowcolors{2}{gray!15}{white}
-	\begin{tabular}{|c|c|c|c|c|c|}
-		\hline
-		\textbf{ID} & \textbf{Entrada} & \textbf{Situaciones cubiertas} & \textbf{Salida esperada} & \textbf{Resultado} \\
-		\hline
-		\hline
+	\rowcolors{2}{gray!15}{white}\resizebox{1 \textwidth}{!}{
+		\begin{tabular}{|c|c|c|c|c|c|}
+			\hline
+			\textbf{ID} & \textbf{Entrada} & \textbf{Situaciones cubierta(s)} & \textbf{Salida esperada} & \textbf{Resultado} \\
+			\hline
+			\hline
+			I1 & NIF: vacío & SVI1 & Error & \OK \\
+			I2 & Sexo: X & SVI2 & Error & \OK \\
+			I3 & País: vacío & SVI3 & Error & \MAL{inscrito} \\
+			I4 & Inscr. sp31 2 veces en PC2 & SPI3.1 & Error & \OK \\
+			I5 & Inscr. sp31 y luego sp42 en PC3 & SPI4.2 & Error & \OK \\
+			I6 & Inscr. sp42 en PC2 el 2024-06-01 & SPI2.7 & Error & \OK \\
+			I7 & Inscr. sp42 en PC2 el 2024-05-30 & SPI2.6 & Error & \MAL{inscrito} \\
+			I8 & Inscr. sp125 en PC2 el 2024-05-29 & SPI2.5, SPI4.1, SPI3.2, SPI1.25 & Cuota3, F-70 & \OK \\
+			I9 & Inscr. sp124 en PC2 el 2024-05-01 & SPI2.4, SPI1.24 & Cuota1, F-60 & \OK \\
+			I10 & Inscr. sp123 en PC3 el 2024-04-01 & SPI2.3, SPI1.23 & Cuota2, F-60 & \OK \\
+			I11 & Inscr. sp122 en PC3 el 2024-03-01 & SPI2.2, SPI1.22 & Cuota1, F-55 & \OK \\
+			I12 & Inscr. sp121 en PC3 el 2024-02-01 & SPI2.1 & Error & \OK \\
+			I13 & Inscr. sp121 en PC3 el 2024-03-01 & SPI1.21 & Cuota1, F-50 & \OK \\
+			I14 & Inscr. sp120 en PC3 el 2024-03-01 & SPI1.20 & Cuota1, F-45 & \OK \\
+			I15 & Inscr. sp119 en PC3 el 2024-03-01 & SPI1.19 & Cuota1, F-40 & \OK \\
+			I16 & Inscr. sp118 en PC3 el 2024-03-01 & SPI1.18 & Cuota1, SF & \OK \\
+			I17 & Inscr. sp117 en PC3 el 2024-03-01 & SPI1.17 & Cuota1, SF & \OK \\
+			I18 & Inscr. sp116 en PC3 el 2024-03-01 & SPI1.16 & Error & \OK \\
+			I19 & Inscr. sp126 en PC3 el 2024-03-01 & SPI1.26 & Cuota1, F-70 & \OK \\
+			I20 & Inscr. sp115 en PC3 el 2024-03-01 & SPI1.15 & Cuota1, M-70 & \OK \\
+			I21 & Inscr. sp114 en PC3 el 2024-03-01 & SPI1.14 & Cuota1, M-65 & \OK \\
+			I22 & Inscr. sp113 en PC3 el 2024-03-01 & SPI1.13 & Cuota1, M-60 & \OK \\
+			I23 & Inscr. sp112 en PC3 el 2024-03-01 & SPI1.12 & Cuota1, M-55 & \OK \\
+			I24 & Inscr. sp111 en PC3 el 2024-03-01 & SPI1.11 & Cuota1, M-50 & \OK \\
+			I25 & Inscr. sp110 en PC3 el 2024-03-01 & SPI1.10 & Cuota1, M-45 & \OK \\
+			I26 & Inscr. sp19 en PC3 el 2024-03-01 & SPI1.9 & Cuota1, M-40 & \OK \\
+			I27 & Inscr. sp18 en PC3 el 2024-03-01 & SPI1.8 & Cuota1, M-35 & \MAL{Cuota1, SM} \\
+			I28 & Inscr. sp17 en PC3 el 2024-03-01 & SPI1.7 & Cuota1, M-40 & \OK \\
+			I29 & Inscr. sp16 en PC3 el 2024-03-01 & SPI1.6 & Cuota1, M-45 & \OK \\
+			I30 & Inscr. sp15 en PC3 el 2024-03-01 & SPI1.5 & Cuota1, M-45 & \OK \\
+			I31 & Inscr. sp14 en PC3 el 2024-03-01 & SPI1.4 & Cuota1, SM & \OK \\
+			I32 & Inscr. sp13 en PC3 el 2024-03-01 & SPI1.3 & Cuota1, SM & \MAL{menor de edad} \\
+			I33 & Inscr. sp12 en PC3 el 2024-03-01 & SPI1.2 & Error & \OK \\
+			I34 & Inscr. sp11 en PC3 el 2024-03-01 & SPI1.1 & Error & \OK \\
+			\hline
+		\end{tabular}
+	}
 
-		\hline
-	\end{tabular}
 \end{table}
